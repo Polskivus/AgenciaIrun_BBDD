@@ -1,9 +1,11 @@
 package gestores;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import menu.FormularioDatos;
 import menu.Menu;
+import menu.Visor;
 import objetos.Cliente;
 
 public class GestorCliente {
@@ -73,6 +75,11 @@ public class GestorCliente {
 				break;
 				
 			case Menu.VISUALIZAR_CLIENTE:
+				
+				gestorDDBB.abrirConexion();
+				ArrayList<Cliente> clientes = gestorDDBB.visualizarTodosClientes();
+				Visor.mostrarArrayClientes(clientes);
+				gestorDDBB.cerrarConexion();
 				
 				break;
 				
