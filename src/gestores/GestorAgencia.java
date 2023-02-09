@@ -28,14 +28,13 @@ public class GestorAgencia {
 
 			switch (opc) {
 			case Menu.GESTION_CLIENTES:
-				
+
 				GestorCliente.run(sc);
-				
+
 				break;
 
 			case Menu.GESTION_HABITACIONES:
 
-				
 				break;
 
 			case Menu.GESTION_HOTELES:
