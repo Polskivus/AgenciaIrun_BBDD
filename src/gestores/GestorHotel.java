@@ -44,12 +44,21 @@ public class GestorHotel {
 				hotel = FormularioDatos.insertarHotel(sc);
 				gestorDDBB.insertarHotel(hotel);
 				gestorDDBB.cerrarConexion();
-				
+
 				System.out.println("----------HOTEL AÑADIDO----------");
-				
+
 				break;
 
 			case Menu.ELIMINAR_HOTEL:
+
+				int id;
+
+				gestorDDBB.abrirConexion();
+				id = FormularioDatos.pedirIDHotelEliminar(sc);
+				gestorDDBB.eliminarHotel(id);
+				gestorDDBB.cerrarConexion();
+
+				System.out.println("----------HOTEL ELIMINADO----------");
 
 				break;
 
