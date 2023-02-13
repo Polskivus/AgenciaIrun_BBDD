@@ -35,6 +35,8 @@ public class GestorAgencia {
 
 			case Menu.GESTION_HABITACIONES:
 
+				GestorHotel.run(sc);
+				
 				break;
 
 			case Menu.GESTION_HOTELES:
