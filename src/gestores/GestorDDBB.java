@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import conexion.Conexion;
 import objetos.Cliente;
+import objetos.Hotel;
 
 public class GestorDDBB extends Conexion {
 //clientes
@@ -98,6 +99,21 @@ public class GestorDDBB extends Conexion {
 		}
 
 		return clientes;
+	}
+	
+	public void insertarHotel(Hotel hotel) {
+		
+		String insertarHotel = "INSERT INTO hoteles VALUES(?,?,?,?,?)";
+		
+		try {
+			
+			
+			PreparedStatement inser
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }
