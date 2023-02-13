@@ -145,7 +145,17 @@ public class GestorDDBB extends Conexion {
 	
 	public void modificarHotel(Hotel hotel) {
 		
-		String modificarHotel = "UPDATE FROM hoteles";
+		String modificarHotel = "UPDATE hoteles SET  WHERE id= ?";
+		
+		try {
+			
+			PreparedStatement modHotel = super.cn.prepareStatement(modificarHotel);
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 
