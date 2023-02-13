@@ -69,7 +69,7 @@ public class GestorCliente {
 				cliente_mod = FormularioDatos.modCliente(cliente_mod, sc);
 				gestorDDBB.modificarCliente(cliente_mod);
 				gestorDDBB.cerrarConexion();
-				
+
 				System.out.println("---------USUARIO MODIFICADO---------");
 
 				break;
@@ -82,7 +82,7 @@ public class GestorCliente {
 				gestorDDBB.cerrarConexion();
 
 				System.out.println("--------ESTOS SO TODOS LOS USUARIOS--------");
-				
+
 				break;
 
 			case Menu.SALIR:
