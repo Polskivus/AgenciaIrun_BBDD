@@ -3,6 +3,7 @@ package menu;
 import java.util.Scanner;
 
 import objetos.Cliente;
+import objetos.Hotel;
 
 public class FormularioDatos {
 
@@ -69,4 +70,26 @@ public class FormularioDatos {
 		return cliente;
 	}
 
+	public static Hotel insertarHotel(Scanner sc) {
+		
+		Hotel hotel = new Hotel();
+		
+		System.out.println("Introduce el CIF del hotel nuevo");
+		hotel.setCif(sc.nextLine());
+		
+		System.out.println("Introduce el nombre del hotel");
+		hotel.setNombre(sc.nextLine());
+		
+		System.out.println("Introduce el nombre del gerente");
+		hotel.setGerente(sc.nextLine());
+		
+		System.out.println("Introduce el numero de estrellas");
+		hotel.setEstrellas(Integer.parseInt(sc.nextLine()));
+		
+		System.out.println("Introduce el nombre de la compañia");
+		hotel.setCompania(sc.nextLine());
+		
+		return hotel;
+	}
+	
 }
