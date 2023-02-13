@@ -71,25 +71,36 @@ public class FormularioDatos {
 	}
 
 	public static Hotel insertarHotel(Scanner sc) {
-		
+
 		Hotel hotel = new Hotel();
-		
+
 		System.out.println("Introduce el CIF del hotel nuevo");
 		hotel.setCif(sc.nextLine());
-		
+
 		System.out.println("Introduce el nombre del hotel");
 		hotel.setNombre(sc.nextLine());
-		
+
 		System.out.println("Introduce el nombre del gerente");
 		hotel.setGerente(sc.nextLine());
-		
+
 		System.out.println("Introduce el numero de estrellas");
 		hotel.setEstrellas(Integer.parseInt(sc.nextLine()));
-		
+
 		System.out.println("Introduce el nombre de la compañia");
 		hotel.setCompania(sc.nextLine());
-		
+
 		return hotel;
 	}
-	
+
+	public static int pedirIDHotelEliminar(Scanner sc) {
+
+		int id_hotel;
+
+		System.out.println("Introduce el id que quieres eliminar");
+		id_hotel = Integer.parseInt(sc.nextLine());
+
+		return id_hotel;
+
+	}
+
 }
