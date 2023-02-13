@@ -127,18 +127,22 @@ public class GestorDDBB extends Conexion {
 
 	public void eliminarHotel(int id) {
 
-		String elimiarHotel = "DELETE FROM hoteles WHERE id = ?";
+		String elimiarHotel = "DELETE FROM hoteles WHERE id= ?";
 
 		try {
 
 			PreparedStatement deleteHotel = super.cn.prepareStatement(elimiarHotel);
 
 			deleteHotel.setInt(1, id);
+			
+			deleteHotel.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 	}
+	
+	
 
 }
