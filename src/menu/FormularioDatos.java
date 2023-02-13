@@ -102,5 +102,40 @@ public class FormularioDatos {
 		return id_hotel;
 
 	}
+	
+	public static int pedirIDHotelModificar(Scanner sc) {
+
+		int id_hotel;
+
+		System.out.println("Introduce el id que quieres modificar");
+		id_hotel = Integer.parseInt(sc.nextLine());
+
+		return id_hotel;
+
+	}
+	
+	public static Hotel modificarHotel(Hotel hotel, Scanner sc) {
+		
+		Hotel hotel_mod = new Hotel();
+		
+		hotel_mod.setId(pedirIDHotelModificar(sc));
+		
+		System.out.println("Introduce el CIF del hotel modificado");
+		hotel.setCif(sc.nextLine());
+
+		System.out.println("Introduce el nombre del modificado");
+		hotel.setNombre(sc.nextLine());
+
+		System.out.println("Introduce el nombre del gerente nuevo");
+		hotel.setGerente(sc.nextLine());
+
+		System.out.println("Introduce el numero de estrellas nuevas");
+		hotel.setEstrellas(Integer.parseInt(sc.nextLine()));
+
+		System.out.println("Introduce el nombre de la compañia nueva");
+		hotel.setCompania(sc.nextLine());
+		
+		return hotel_mod;
+	}
 
 }

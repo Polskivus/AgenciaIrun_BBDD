@@ -64,6 +64,8 @@ public class GestorHotel {
 
 			case Menu.MODIFICAR_HOTEL:
 
+				
+				
 				break;
 
 			case Menu.VISUALIZAR_HOTEL:
