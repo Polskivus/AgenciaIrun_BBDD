@@ -145,12 +145,21 @@ public class GestorDDBB extends Conexion {
 	
 	public void modificarHotel(Hotel hotel) {
 		
-		String modificarHotel = "UPDATE hoteles SET  WHERE id= ?";
+		String modificarHotel = "UPDATE hoteles SET cif = ?, nombre = ?, gerente = ?, estrellas = ?, compania = ?  WHERE id= ?";
 		
 		try {
 			
 			PreparedStatement modHotel = super.cn.prepareStatement(modificarHotel);
-			//dsaasasdasdasdasdasdadas
+			
+			modHotel.setString(1, hotel.getCif());
+			modHotel.setString(2, hotel.getNombre());
+			modHotel.setString(3, hotel.getGerente());
+			modHotel.setInt(4, hotel.getEstrellas());
+			modHotel.setString(5, hotel.getCompania());
+			
+			modHotel.setInt(6, hotel.getId());
+			
+			modHotel.executeUpdate();
 			
 			
 		} catch (Exception e) {
