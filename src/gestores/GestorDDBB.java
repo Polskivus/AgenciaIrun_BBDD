@@ -114,7 +114,7 @@ public class GestorDDBB extends Conexion {
 			insertHotel.setString(3, hotel.getGerente());
 			insertHotel.setInt(4, hotel.getEstrellas());
 			insertHotel.setString(5, hotel.getCompania());
-			
+
 			insertHotel.execute();
 
 		} catch (Exception e) {
@@ -122,7 +122,23 @@ public class GestorDDBB extends Conexion {
 		}
 
 	}
-	
-	/*EL SIGUIENTE*/
+
+	/* EL SIGUIENTE */
+
+	public void eliminarHotel(int id) {
+
+		String elimiarHotel = "DELETE FROM hoteles WHERE id = ?";
+
+		try {
+
+			PreparedStatement deleteHotel = super.cn.prepareStatement(elimiarHotel);
+
+			deleteHotel.setInt(1, id);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 
 }
