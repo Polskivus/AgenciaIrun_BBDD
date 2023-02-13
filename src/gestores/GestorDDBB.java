@@ -150,7 +150,7 @@ public class GestorDDBB extends Conexion {
 		try {
 			
 			PreparedStatement modHotel = super.cn.prepareStatement(modificarHotel);
-			
+			//dsaasasdasdasdasdasdadas
 			
 			
 		} catch (Exception e) {
