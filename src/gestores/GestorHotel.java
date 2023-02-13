@@ -64,7 +64,11 @@ public class GestorHotel {
 
 			case Menu.MODIFICAR_HOTEL:
 
+				Hotel hotel_mod = new Hotel();
 				
+				gestorDDBB.abrirConexion();
+				hotel_mod = FormularioDatos.modificarHotel(hotel_mod, sc);
+				gestorDDBB.
 				
 				break;
 

@@ -143,6 +143,10 @@ public class GestorDDBB extends Conexion {
 
 	}
 	
-	
+	public void modificarHotel(Hotel hotel) {
+		
+		String modificarHotel = "UPDATE FROM hoteles";
+		
+	}
 
 }
