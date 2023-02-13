@@ -36,10 +36,10 @@ public class GestorDDBB extends Conexion {
 
 		try {
 
-			PreparedStatement stDelete = super.cn.prepareStatement(EliminarCliente);
-			stDelete.setString(1, DNI);
+			PreparedStatement stDeleteCliente = super.cn.prepareStatement(EliminarCliente);
+			stDeleteCliente.setString(1, DNI);
 
-			stDelete.executeUpdate();
+			stDeleteCliente.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -100,20 +100,29 @@ public class GestorDDBB extends Conexion {
 
 		return clientes;
 	}
-	
+
 	public void insertarHotel(Hotel hotel) {
-		
-		String insertarHotel = "INSERT INTO hoteles VALUES(?,?,?,?,?)";
-		
+
+		String insertarHotel = "INSERT INTO hoteles (cif, nombre, gerente, estrellas, compania) VALUES(?,?,?,?,?)";
+
 		try {
+
+			PreparedStatement insertHotel = super.cn.prepareStatement(insertarHotel);
+
+			insertHotel.setString(1, hotel.getCif());
+			insertHotel.setString(2, hotel.getNombre());
+			insertHotel.setString(3, hotel.getGerente());
+			insertHotel.setInt(4, hotel.getEstrellas());
+			insertHotel.setString(5, hotel.getCompania());
 			
-			
-			PreparedStatement inser
-			
+			insertHotel.execute();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
+	
+	/*EL SIGUIENTE*/
 
 }
