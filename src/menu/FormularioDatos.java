@@ -102,7 +102,7 @@ public class FormularioDatos {
 		return id_hotel;
 
 	}
-	
+
 	public static int pedirIDHotelModificar(Scanner sc) {
 
 		int id_hotel;
@@ -113,13 +113,13 @@ public class FormularioDatos {
 		return id_hotel;
 
 	}
-	
+
 	public static Hotel modificarHotel(Hotel hotel, Scanner sc) {
-		
+
 		Hotel hotel_mod = new Hotel();
-		
+
 		hotel_mod.setId(pedirIDHotelModificar(sc));
-		
+
 		System.out.println("Introduce el CIF del hotel modificado");
 		hotel.setCif(sc.nextLine());
 
@@ -134,7 +134,7 @@ public class FormularioDatos {
 
 		System.out.println("Introduce el nombre de la compañia nueva");
 		hotel.setCompania(sc.nextLine());
-		
+
 		return hotel_mod;
 	}
 
