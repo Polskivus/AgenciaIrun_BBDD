@@ -88,7 +88,7 @@ public class GestorHotel {
 				Visor.mostrarArrayHoteles(hoteles);
 				gestorDDBB.cerrarConexion();
 
-				System.out.println("---------HOTELES EN SISTEMA---------");
+				System.out.println("-------HOTELES EN SISTEMA--------");
 
 				break;
 
