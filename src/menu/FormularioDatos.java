@@ -138,7 +138,7 @@ public class FormularioDatos {
 		
 		return hotel_mod;
 	}
-	// abitacion
+	// habitacion
 	
 	public static Habitacion pedirHabitacion (Scanner sc) {
 		Habitacion habitacion= new Habitacion();
