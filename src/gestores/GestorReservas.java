@@ -2,7 +2,9 @@ package gestores;
 
 import java.util.Scanner;
 
+import menu.FormularioDatos;
 import menu.Menu;
+import objetos.Reserva;
 
 public class GestorReservas {
 
@@ -30,6 +32,12 @@ public class GestorReservas {
 			switch (opcReserva) {
 			case Menu.INSERTAR_RESERVAS:
 
+				Reserva reserva = new Reserva();
+				
+				gestorDDBB.abrirConexion();
+				reserva = FormularioDatos.
+				gestorDDBB.cerrarConexion();
+				
 				break;
 
 			case Menu.ELIMINAR_RESERVAS:

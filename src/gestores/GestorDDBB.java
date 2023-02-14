@@ -200,4 +200,31 @@ public class GestorDDBB extends Conexion {
 		return hoteles;
 	}
 
+	public ArrayList<String> devolverDNI() {
+		
+		ArrayList<String> dnis = new ArrayList<>();
+		
+		String dni;
+		
+		String cogerDni = "SELECT (dni) FROM clientes";
+		
+		try {
+			
+			PreparedStatement cogerDNIS = super.cn.prepareStatement(cogerDni);
+			ResultSet resultSet = cogerDNIS.executeQuery(cogerDni);
+			
+			while(resultSet.next()) {
+							
+				Cliente cliente = new Cliente();
+				
+				cliente.setDni(resultSet.getString("dni"));
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return dnis;
+	}
 }
