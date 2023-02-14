@@ -10,7 +10,7 @@ import objetos.Hotel;
 
 
 public class GestorHabitacion {
-//destor del menu de habitaciones
+//destor del menu de habitaciones adsdf
 	
 	public static void run(Scanner sc) {
 		GestorDDBB gestorDDBB = new GestorDDBB();
