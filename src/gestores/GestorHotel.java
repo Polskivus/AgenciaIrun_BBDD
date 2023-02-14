@@ -1,9 +1,11 @@
 package gestores;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import menu.FormularioDatos;
 import menu.Menu;
+import menu.Visor;
 import objetos.Hotel;
 
 public class GestorHotel {
@@ -65,18 +67,31 @@ public class GestorHotel {
 			case Menu.MODIFICAR_HOTEL:
 
 				Hotel hotel_mod = new Hotel();
-				
+
 				gestorDDBB.abrirConexion();
 				hotel_mod = FormularioDatos.modificarHotel(hotel_mod, sc);
-				gestorDDBB.
-				
+				gestorDDBB.modificarHotel(hotel_mod);
+				gestorDDBB.cerrarConexion();
+
+				System.out.println("----------HOTEL MODIFICADO----------");
+
 				break;
 
 			case Menu.VISUALIZAR_HOTEL:
 
+				gestorDDBB.abrirConexion();
+				ArrayList<Hotel> hoteles = gestorDDBB.mostrarArrayHotel();
+				Visor.mostrarArrayHoteles(hoteles);
+				gestorDDBB.cerrarConexion();
+
+				System.out.println("---------HOTELES EN SISTEMA---------");
+
 				break;
 
 			case Menu.SALIR:
+
+				System.out.println("--------------VOLVIENDO------------------");
+
 				break;
 			}
 
