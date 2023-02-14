@@ -134,7 +134,7 @@ public class GestorDDBB extends Conexion {
 			PreparedStatement deleteHotel = super.cn.prepareStatement(elimiarHotel);
 
 			deleteHotel.setInt(1, id);
-			
+
 			deleteHotel.executeUpdate();
 
 		} catch (Exception e) {
@@ -142,30 +142,62 @@ public class GestorDDBB extends Conexion {
 		}
 
 	}
-	
+
 	public void modificarHotel(Hotel hotel) {
-		
+
 		String modificarHotel = "UPDATE hoteles SET cif = ?, nombre = ?, gerente = ?, estrellas = ?, compania = ?  WHERE id= ?";
-		
+
 		try {
-			
+
 			PreparedStatement modHotel = super.cn.prepareStatement(modificarHotel);
-			
+
 			modHotel.setString(1, hotel.getCif());
 			modHotel.setString(2, hotel.getNombre());
 			modHotel.setString(3, hotel.getGerente());
 			modHotel.setInt(4, hotel.getEstrellas());
 			modHotel.setString(5, hotel.getCompania());
-			
+
 			modHotel.setInt(6, hotel.getId());
-			
+
 			modHotel.executeUpdate();
-			
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
+	}
+
+	public ArrayList<Hotel> mostrarArrayHotel() {
+
+		String selectHoteles = "SELECT * FROM hoteles";
+
+		ArrayList<Hotel> hoteles = new ArrayList<Hotel>();
+
+		try {
+
+			PreparedStatement mostrarHoteles = super.cn.prepareStatement(selectHoteles);
+			ResultSet resultSet = mostrarHoteles.executeQuery(selectHoteles);
+
+			while (resultSet.next()) {
+
+				Hotel hotel = new Hotel();
+
+				hotel.setId(resultSet.getInt("id"));
+				hotel.setCif(resultSet.getString("cif"));
+				hotel.setNombre(resultSet.getString("nombre"));
+				hotel.setGerente(resultSet.getString("gerente"));
+				hotel.setEstrellas(resultSet.getInt("estrellas"));
+				hotel.setCompania(resultSet.getString("compania"));
+
+				hoteles.add(hotel);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return hoteles;
 	}
 
 }
