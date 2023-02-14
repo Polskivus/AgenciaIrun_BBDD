@@ -1,10 +1,14 @@
 package menu;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
+import gestores.GestorDDBB;
 import objetos.Cliente;
 import objetos.Habitacion;
 import objetos.Hotel;
+import objetos.Reserva;
 
 public class FormularioDatos {
 
@@ -190,4 +194,39 @@ public class FormularioDatos {
 		return habitacion;
 	}
 
+	
+	
+	
+	
+	
+	
+	public static Reserva insertarReserva(Scanner sc, Cliente cliente) {
+		
+		boolean bien_o_mal;
+		
+		ArrayList<String> dnis = new ArrayList<>();
+		
+		Reserva reserva = new Reserva();
+		
+//		do {
+//			
+//			System.out.println("Introduce el DNI");
+//			reserva.setDni(sc.nextLine());
+//			
+//			
+//			
+//		}while(bien_o_mal != true);
+//		
+		
+		System.out.println("Introduce el ID del habitacion.");
+		reserva.setId_habitacion(Integer.parseInt(sc.nextLine()));
+		
+		System.out.println("");
+		
+		
+		return reserva;
+		
+	}
+	
+	
 }
