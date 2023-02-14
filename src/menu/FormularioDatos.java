@@ -165,7 +165,7 @@ public class FormularioDatos {
 
 		int id;
 
-		System.out.println("Introduce el id que quieres eliminar");
+		System.out.println("Introduce el id ");
 		id = Integer.parseInt(sc.nextLine());
 
 		return id;
