@@ -12,6 +12,8 @@ public class GestorHotel {
 	 * @param sc
 	 */
 
+	
+	
 	public static void run(Scanner sc) {
 
 		GestorDDBB gestorDDBB = new GestorDDBB();
@@ -33,7 +35,9 @@ public class GestorHotel {
 				opcHotel = Integer.parseInt(sc.nextLine());
 
 			}
-			;
+			
+	
+		
 
 			switch (opcHotel) {
 			case Menu.INSERTAR_HOTEL:
