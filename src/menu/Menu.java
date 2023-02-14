@@ -24,10 +24,10 @@ public class Menu {
 	public static final int MODIFICAR_HABITCION = 3;
 	public static final int INSERTAR_HABITACION = 4;
 	/* MENU RESERVAS */
-	public static final int VISUALIZAR_RESERVAS = 1;
+	public static final int INSERTAR_RESERVAS = 1;
 	public static final int ELIMINAR_RESERVAS = 2;
 	public static final int MODIFICAR_RESERVAS = 3;
-	public static final int INSERTAR_RESERVAS = 4;
+	public static final int VISUALIZAR_RESERVAS = 4;
 
 	public static void menuPrincipal() {
 		System.out.println("---------------------------------");
