@@ -36,8 +36,8 @@ public class Reserva {
 		this.dni = dni;
 	}
 
-	public Date getDesde() {
-		return desde;
+	public java.sql.Date getDesde() {
+		return (java.sql.Date) desde;
 	}
 
 	public void setDesde(Date desde) {
@@ -59,6 +59,7 @@ public class Reserva {
 	public void setPattern(String pattern) {
 		this.pattern = pattern;
 	}
+	
 
 	public SimpleDateFormat getSimpleDateFormat() {
 		return simpleDateFormat;
