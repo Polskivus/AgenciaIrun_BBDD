@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import conexion.Conexion;
 import objetos.Cliente;
 import objetos.Hotel;
+import objetos.Reserva;
 
 public class GestorDDBB extends Conexion {
 //clientes
@@ -200,9 +201,9 @@ public class GestorDDBB extends Conexion {
 		return hoteles;
 	}
 
-	public ArrayList<Cliente> devolverDNI() {
+	public ArrayList<String> devolverDNI() {
 
-		ArrayList<Cliente> dnis = new ArrayList<>();
+		ArrayList<String> dnis = new ArrayList<>();
 		String cogerDni = "SELECT (dni) FROM clientes";
 
 		try {
@@ -212,10 +213,8 @@ public class GestorDDBB extends Conexion {
 
 			while (resultSet.next()) {
 
+				dnis.add(resultSet.getString("dni"));
 				
-				
-				dnis.add(resultSet.getString(1));
-
 			}
 
 		} catch (Exception e) {
@@ -223,5 +222,11 @@ public class GestorDDBB extends Conexion {
 		}
 
 		return dnis;
+	}
+	
+	public void insertarReserva(Reserva reserva) {
+		
+		String insertReserva = "INSERT INTO reservas VALUES (id_habitacion, dni, desde, hasta)"
+		
 	}
 }
