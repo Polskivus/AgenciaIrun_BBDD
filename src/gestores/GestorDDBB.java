@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import conexion.Conexion;
 import objetos.Cliente;
+import objetos.Habitacion;
 import objetos.Hotel;
 import objetos.Reserva;
 
@@ -224,9 +225,100 @@ public class GestorDDBB extends Conexion {
 		return dnis;
 	}
 	
+
 	public void insertarReserva(Reserva reserva) {
 		
 		String insertReserva = "INSERT INTO reservas VALUES (id_habitacion, dni, desde, hasta)"
 		
+
+	//habitacion
+	public ArrayList<Habitacion> mostrarArrayHabitaciones(){
+
+		String selectHabitaciones = "SELECT * FROM Habitaciones";
+
+		ArrayList<Habitacion> Habitaciones = new ArrayList<Habitacion>();
+
+		try {
+
+			PreparedStatement mostrarHabitacion = super.cn.prepareStatement(selectHabitaciones);
+			ResultSet resultSet = mostrarHabitacion.executeQuery(selectHabitaciones);
+
+			while (resultSet.next()) {
+
+				Habitacion Habitacion = new Habitacion();
+				
+				
+				Habitacion.setId(resultSet.getInt("id"));
+				Habitacion.setId_hotel(resultSet.getInt("id_hotel"));
+				Habitacion.setNumero(resultSet.getString("numero"));
+				Habitacion.setDescripcion(resultSet.getString("descripcion"));
+				Habitacion.setPrecio(resultSet.getDouble("precio"));
+				
+
+				Habitaciones.add(Habitacion);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return Habitaciones;
+	}
+	public void eliminarHabitacion(int id) {
+
+		String EliminarHabitacion = "DELETE FROM Habitaciones WHERE id= ?";
+
+		try {
+
+			PreparedStatement stDeleteHabitacion = super.cn.prepareStatement(EliminarHabitacion);
+			stDeleteHabitacion.setInt(1, id);
+
+			stDeleteHabitacion.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	public void modificarHabitacion(Habitacion Habitacion) {
+
+		String modificarCliente = "UPDATE clientes SET  Id_hotel = ?, Numero = ?, Descripcion = ?, Precio =? WHERE Id = ?";
+
+		try {
+
+			PreparedStatement stmodificarHabitacion = super.cn.prepareStatement(modificarCliente);
+
+			
+			stmodificarHabitacion.setInt(1, Habitacion.getId_hotel());
+			stmodificarHabitacion.setString(2, Habitacion.getNumero());
+			stmodificarHabitacion.setString(3, Habitacion.getDescripcion());
+			stmodificarHabitacion.setDouble(4, Habitacion.getPrecio());
+			stmodificarHabitacion.setInt(5, Habitacion.getId());
+			stmodificarHabitacion.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	public void insertarHabitacion(Habitacion Habitacion) {
+
+		String insertarHabitacion = "INSERT INTO Habitaciones ( Id_hotel, Numero, Descripcion, Precio) VALUES(?,?,?,?)";
+
+		try {
+
+			PreparedStatement insertHabitacion = super.cn.prepareStatement(insertarHabitacion);
+
+			insertHabitacion.setInt(1, Habitacion.getId_hotel());
+			insertHabitacion.setString(2, Habitacion.getNumero());
+			insertHabitacion.setString(3, Habitacion.getDescripcion());
+			insertHabitacion.setDouble(4, Habitacion.getPrecio());
+			insertHabitacion.execute();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 }
