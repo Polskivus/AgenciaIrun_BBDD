@@ -25,7 +25,7 @@ public class GestorHabitacion {
 			switch (opcHabitacion) {
 			case Menu.VISUALIZAR_HABITACION:
 				gestorDDBB.abrirConexion();
-				//ArrayList<Habitacion> habitacion = gestorDDBB.mostrarArrayHabitaciones();
+				ArrayList<Habitacion> habitacion = gestorDDBB.mostrarArrayHabitaciones();
 				//Visor.mostrarArrayHabitaciones(habitacion);
 				gestorDDBB.cerrarConexion();
 				System.out.println("---------HABITACIONES EN SISTEMA---------");

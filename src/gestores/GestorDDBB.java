@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import conexion.Conexion;
 import objetos.Cliente;
+import objetos.Habitacion;
 import objetos.Hotel;
 
 public class GestorDDBB extends Conexion {
@@ -223,5 +224,40 @@ public class GestorDDBB extends Conexion {
 		}
 
 		return dnis;
+	}
+	
+	//habitacion
+	public ArrayList<Habitacion> mostrarArrayHabitaciones(){
+
+		String selectHabitaciones = "SELECT * FROM Habitaciones";
+
+		ArrayList<Habitacion> Habitaciones = new ArrayList<Habitacion>();
+
+		try {
+
+			PreparedStatement mostrarHabitacion = super.cn.prepareStatement(selectHabitaciones);
+			ResultSet resultSet = mostrarHabitacion.executeQuery(selectHabitaciones);
+
+			while (resultSet.next()) {
+
+				Habitacion Habitacion = new Habitacion();
+				
+				
+				Habitacion.setId(resultSet.getInt("id"));
+				Habitacion.setId_hotel(resultSet.getInt("id_hotel"));
+				Habitacion.setNumero(resultSet.getString("numero"));
+				Habitacion.setDescripcion(resultSet.getString("descripcion"));
+				Habitacion.setPrecio(resultSet.getDouble("precio"));
+				
+
+				Habitaciones.add(Habitacion);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return Habitaciones;
 	}
 }
