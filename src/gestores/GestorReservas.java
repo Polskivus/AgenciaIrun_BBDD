@@ -1,5 +1,6 @@
 package gestores;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import menu.FormularioDatos;
@@ -35,6 +36,7 @@ public class GestorReservas {
 				Reserva reserva = new Reserva();
 				
 				gestorDDBB.abrirConexion();
+				gestorDDBB.devolverDNI();
 				reserva = FormularioDatos.
 				gestorDDBB.cerrarConexion();
 				

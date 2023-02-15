@@ -200,9 +200,9 @@ public class GestorDDBB extends Conexion {
 		return hoteles;
 	}
 
-	public ArrayList<String> devolverDNI() {
+	public ArrayList<Cliente> devolverDNI() {
 
-		ArrayList<String> dnis = new ArrayList<>();
+		ArrayList<Cliente> dnis = new ArrayList<>();
 		String cogerDni = "SELECT (dni) FROM clientes";
 
 		try {
@@ -212,9 +212,9 @@ public class GestorDDBB extends Conexion {
 
 			while (resultSet.next()) {
 
-				Cliente cliente = new Cliente();
-
-				cliente.setDni(resultSet.getString("dni"));
+				
+				
+				dnis.add(resultSet.getString(1));
 
 			}
 

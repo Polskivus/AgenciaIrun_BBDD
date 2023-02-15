@@ -204,7 +204,7 @@ public class FormularioDatos {
 		
 		boolean bien_o_mal;
 		
-		ArrayList<String> dnis = new ArrayList<>();
+		ArrayList<Cliente> Cdnis = ;
 		
 		Reserva reserva = new Reserva();
 		
