@@ -284,13 +284,32 @@ public class GestorDDBB extends Conexion {
 
 			PreparedStatement stmodificarHabitacion = super.cn.prepareStatement(modificarCliente);
 
-			stmodificarHabitacion.setInt(1, Habitacion.getId());
-			stmodificarHabitacion.setInt(2, Habitacion.getId_hotel());
-			stmodificarHabitacion.setString(3, Habitacion.getNumero());
-			stmodificarHabitacion.setString(4, Habitacion.getDescripcion());
-			stmodificarHabitacion.setDouble(5, Habitacion.getPrecio());
-
+			
+			stmodificarHabitacion.setInt(1, Habitacion.getId_hotel());
+			stmodificarHabitacion.setString(2, Habitacion.getNumero());
+			stmodificarHabitacion.setString(3, Habitacion.getDescripcion());
+			stmodificarHabitacion.setDouble(4, Habitacion.getPrecio());
+			stmodificarHabitacion.setInt(5, Habitacion.getId());
 			stmodificarHabitacion.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	public void insertarHabitacion(Habitacion Habitacion) {
+
+		String insertarHabitacion = "INSERT INTO Habitaciones ( Id_hotel, Numero, Descripcion, Precio) VALUES(?,?,?,?)";
+
+		try {
+
+			PreparedStatement insertHabitacion = super.cn.prepareStatement(insertarHabitacion);
+
+			insertHabitacion.setInt(1, Habitacion.getId_hotel());
+			insertHabitacion.setString(2, Habitacion.getNumero());
+			insertHabitacion.setString(3, Habitacion.getDescripcion());
+			insertHabitacion.setDouble(4, Habitacion.getPrecio());
+			insertHabitacion.execute();
 
 		} catch (Exception e) {
 			e.printStackTrace();
