@@ -18,10 +18,7 @@ public class GestorHabitacion {
 		do {
 			Menu.menuHabitaciones();
 			opcHabitacion = Integer.parseInt(sc.nextLine());
-			/*
-	public static final int ELIMINAR_HABITACIONES = 2;
-	public static final int MODIFICAR_HABITCION = 3;
-	public static final int INSERTAR_HABITACION = 4;*/
+		
 			switch (opcHabitacion) {
 			case Menu.VISUALIZAR_HABITACION:
 				gestorDDBB.abrirConexion();
@@ -48,7 +45,7 @@ public class GestorHabitacion {
 			case Menu.INSERTAR_HABITACION:
 
 				gestorDDBB.abrirConexion();
-				//gestorDDBB.insertarHabitacion(FormularioDatos.pedirHabitacion(sc));
+				gestorDDBB.insertarHabitacion(FormularioDatos.pedirHabitacion(sc));
 				gestorDDBB.cerrarConexion();
 				System.out.println("----------HABITACION AÑADIDA----------");
 				break;
