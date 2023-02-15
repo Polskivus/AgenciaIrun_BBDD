@@ -260,4 +260,41 @@ public class GestorDDBB extends Conexion {
 
 		return Habitaciones;
 	}
+	public void eliminarHabitacion(int id) {
+
+		String EliminarHabitacion = "DELETE FROM Habitaciones WHERE id= ?";
+
+		try {
+
+			PreparedStatement stDeleteHabitacion = super.cn.prepareStatement(EliminarHabitacion);
+			stDeleteHabitacion.setInt(1, id);
+
+			stDeleteHabitacion.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	public void modificarHabitacion(Habitacion Habitacion) {
+
+		String modificarCliente = "UPDATE clientes SET  Id_hotel = ?, Numero = ?, Descripcion = ?, Precio =? WHERE Id = ?";
+
+		try {
+
+			PreparedStatement stmodificarHabitacion = super.cn.prepareStatement(modificarCliente);
+
+			stmodificarHabitacion.setInt(1, Habitacion.getId());
+			stmodificarHabitacion.setInt(2, Habitacion.getId_hotel());
+			stmodificarHabitacion.setString(3, Habitacion.getNumero());
+			stmodificarHabitacion.setString(4, Habitacion.getDescripcion());
+			stmodificarHabitacion.setDouble(5, Habitacion.getPrecio());
+
+			stmodificarHabitacion.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 }

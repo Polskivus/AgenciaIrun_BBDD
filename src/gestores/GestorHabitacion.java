@@ -18,7 +18,7 @@ public class GestorHabitacion {
 		do {
 			Menu.menuHabitaciones();
 			opcHabitacion = Integer.parseInt(sc.nextLine());
-			/*public static final int VISUALIZAR_HABITACION = 1;
+			/*
 	public static final int ELIMINAR_HABITACIONES = 2;
 	public static final int MODIFICAR_HABITCION = 3;
 	public static final int INSERTAR_HABITACION = 4;*/
@@ -26,14 +26,14 @@ public class GestorHabitacion {
 			case Menu.VISUALIZAR_HABITACION:
 				gestorDDBB.abrirConexion();
 				ArrayList<Habitacion> habitacion = gestorDDBB.mostrarArrayHabitaciones();
-				//Visor.mostrarArrayHabitaciones(habitacion);
+				Visor.mostrarArrayHabitaciones(habitacion);
 				gestorDDBB.cerrarConexion();
 				System.out.println("---------HABITACIONES EN SISTEMA---------");
 				break;
 			case Menu.ELIMINAR_HABITACIONES:
 				gestorDDBB.abrirConexion();
 				int id = FormularioDatos.pedirIDHabitacion(sc);
-				//gestorDDBB.eliminarHabitacion(id);
+				gestorDDBB.eliminarHabitacion(id);
 				gestorDDBB.cerrarConexion();
 				break;
 			case Menu.MODIFICAR_HABITCION:
@@ -41,7 +41,7 @@ public class GestorHabitacion {
 
 				gestorDDBB.abrirConexion();
 				
-				//gestorDDBB.modificarHabitacion(FormularioDatos.modHabitacion(Habitacion, sc));
+				gestorDDBB.modificarHabitacion(FormularioDatos.modHabitacion(Habitacion, sc));
 				gestorDDBB.cerrarConexion();
 				System.out.println("----------HABITACION MODIFICADOA----------");
 				break;
