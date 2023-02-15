@@ -1,5 +1,6 @@
 package menu;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -107,7 +108,7 @@ public class FormularioDatos {
 		return id_hotel;
 
 	}
-	
+
 	public static int pedirIDHotelModificar(Scanner sc) {
 
 		int id_hotel;
@@ -118,13 +119,13 @@ public class FormularioDatos {
 		return id_hotel;
 
 	}
-	
+
 	public static Hotel modificarHotel(Hotel hotel, Scanner sc) {
-		
+
 		Hotel hotel_mod = new Hotel();
-		
+
 		hotel_mod.setId(pedirIDHotelModificar(sc));
-		
+
 		System.out.println("Introduce el CIF del hotel modificado");
 		hotel.setCif(sc.nextLine());
 
@@ -139,32 +140,32 @@ public class FormularioDatos {
 
 		System.out.println("Introduce el nombre de la compañia nueva");
 		hotel.setCompania(sc.nextLine());
-		
+
 		return hotel_mod;
 	}
 	// habitacion
-	
-	public static Habitacion pedirHabitacion (Scanner sc) {
-		Habitacion habitacion= new Habitacion();
-		
-	
+
+	public static Habitacion pedirHabitacion(Scanner sc) {
+		Habitacion habitacion = new Habitacion();
+
 		System.out.println("Introduce la ID de la nueva abitacion:");
 		habitacion.setId(Integer.parseInt(sc.nextLine()));
-		
+
 		System.out.println("Introduce la ID del HOTEL de la nueva abitacion:");
 		habitacion.setId_hotel(Integer.parseInt(sc.nextLine()));
-		
+
 		System.out.println("Introduce el Numero de la nueva abitacion:");
 		habitacion.setNumero(sc.nextLine());
-		
+
 		System.out.println("Introduce la Descripcion de la nueva abitacion:");
 		habitacion.setDescripcion(sc.nextLine());
-		
+
 		System.out.println("Introduce la Precio de la nueva abitacion:");
 		habitacion.setPrecio(Double.parseDouble(sc.nextLine()));
 		return habitacion;
-		
+
 	}
+
 	public static int pedirIDHabitacion(Scanner sc) {
 
 		int id;
@@ -175,13 +176,14 @@ public class FormularioDatos {
 		return id;
 
 	}
+
 	public static Habitacion modHabitacion(Habitacion habitacion, Scanner sc) {
 		System.out.println("Introduce el id que quieres modificar");
 		habitacion.setId(Integer.parseInt(sc.nextLine()));
-		
+
 		System.out.println("Introduce el id del hotel alque pertenecela abitacion que quieres modificar");
 		habitacion.setId_hotel(Integer.parseInt(sc.nextLine()));
-		
+
 		System.out.println("Introduce el nombre modificado");
 		habitacion.setNumero(sc.nextLine());
 
@@ -194,39 +196,81 @@ public class FormularioDatos {
 		return habitacion;
 	}
 
-	
-	
-	
-	
-	
-	
-	public static Reserva insertarReserva(Scanner sc, Cliente cliente) {
-		
-		boolean bien_o_mal;
-		
-		ArrayList<Cliente> Cdnis = ;
-		
+	public static Reserva insertarReserva(Scanner sc, ArrayList<String> dnis) {
+
+		boolean bien_o_mal = false;
+		boolean sales = false;
+
+		int opcInsertReserva;
+
 		Reserva reserva = new Reserva();
-		
-//		do {
-//			
-//			System.out.println("Introduce el DNI");
-//			reserva.setDni(sc.nextLine());
-//			
-//			
-//			
-//		}while(bien_o_mal != true);
-//		
-		
-		System.out.println("Introduce el ID del habitacion.");
-		reserva.setId_habitacion(Integer.parseInt(sc.nextLine()));
-		
-		System.out.println("");
-		
-		
+
+		System.out.println("Introduce el DNI del tomador de la reserva");
+		String dniReserva = sc.nextLine();
+
+		do {
+
+			for (String dni : dnis) {
+
+				if (dniReserva.equals(dni)) {
+
+					System.out.println("El DNI introducido esta dentro del sistema");
+
+					bien_o_mal = true;
+				}
+
+			}
+
+			while (bien_o_mal == false) {
+
+				System.out.println("No se encontro el DNI expecificado");
+
+				System.out.println("Introducir de nuevo o salir?");
+
+				System.out.println(Menu.INSERTAR_RESERVAS+".- De nuevo");
+				System.out.println(Menu.SALIR + ".- Salir");
+
+				opcInsertReserva = Integer.parseInt(sc.nextLine());
+
+				switch (opcInsertReserva) {
+				case Menu.INSERTAR_RESERVAS:
+
+					System.out.println("Introduce el nuevo dni:");
+					dniReserva = sc.nextLine();
+
+					break;
+
+				case Menu.SALIR:
+
+					System.out.println("Hasta luego");
+
+					sales = true;
+					bien_o_mal = true;
+
+					break;
+				}
+
+			}
+
+		} while (bien_o_mal == false);
+
+		if (sales == false) {
+
+			System.out.println("Introduce el ID del habitacion.");
+			reserva.setId_habitacion(Integer.parseInt(sc.nextLine()));
+
+			reserva.setDni(dniReserva);
+
+			System.out.println("Cuando reservas?");
+			reserva.setDesde();
+
+			System.out.printf("Hasta cuando?");
+			reserva.setHasta();
+
+		}
+
 		return reserva;
-		
+
 	}
-	
-	
+
 }
