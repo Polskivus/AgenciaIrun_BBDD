@@ -34,26 +34,38 @@ public class GestorReservas {
 			case Menu.INSERTAR_RESERVAS:
 
 				ArrayList<String> dnis = new ArrayList<>();
-				
+
 				Reserva reserva = new Reserva();
-				
+
 				gestorDDBB.abrirConexion();
-				dnis = gestorDDBB.devolverDNI(); 
+				dnis = gestorDDBB.devolverDNI();
 				reserva = FormularioDatos.insertarReserva(sc, dnis);
-				
+
 				gestorDDBB.cerrarConexion();
-				
+
 				break;
 
 			case Menu.ELIMINAR_RESERVAS:
+
+				gestorDDBB.abrirConexion();
+
+				gestorDDBB.cerrarConexion();
 
 				break;
 
 			case Menu.MODIFICAR_RESERVAS:
 
+				gestorDDBB.abrirConexion();
+
+				gestorDDBB.cerrarConexion();
+
 				break;
 
 			case Menu.VISUALIZAR_RESERVAS:
+
+				gestorDDBB.abrirConexion();
+
+				gestorDDBB.cerrarConexion();
 
 				break;
 
