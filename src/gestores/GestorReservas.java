@@ -33,11 +33,14 @@ public class GestorReservas {
 			switch (opcReserva) {
 			case Menu.INSERTAR_RESERVAS:
 
+				ArrayList<String> dnis = new ArrayList<>();
+				
 				Reserva reserva = new Reserva();
 				
 				gestorDDBB.abrirConexion();
-				gestorDDBB.devolverDNI();
-				reserva = FormularioDatos.
+				dnis = gestorDDBB.devolverDNI(); 
+				reserva = FormularioDatos.insertarReserva(sc, dnis);
+				
 				gestorDDBB.cerrarConexion();
 				
 				break;
