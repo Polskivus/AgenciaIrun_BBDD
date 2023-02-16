@@ -25,7 +25,7 @@ public class GestorHabitacion {
 				ArrayList<Habitacion> habitacion = gestorDDBB.mostrarArrayHabitaciones();
 				Visor.mostrarArrayHabitaciones(habitacion);
 				gestorDDBB.cerrarConexion();
-				System.out.println("---------HABITACIONES EN SISTEMA---------");
+				Visor.mostrar("---------HABITACIONES EN SISTEMA---------");
 				break;
 			case Menu.ELIMINAR_HABITACIONES:
 				gestorDDBB.abrirConexion();
@@ -40,20 +40,20 @@ public class GestorHabitacion {
 				
 				gestorDDBB.modificarHabitacion(FormularioDatos.modHabitacion(Habitacion, sc));
 				gestorDDBB.cerrarConexion();
-				System.out.println("----------HABITACION MODIFICADOA----------");
+				Visor.mostrar("----------HABITACION MODIFICADOA----------");
 				break;
 			case Menu.INSERTAR_HABITACION:
 
 				gestorDDBB.abrirConexion();
 				gestorDDBB.insertarHabitacion(FormularioDatos.pedirHabitacion(sc));
 				gestorDDBB.cerrarConexion();
-				System.out.println("----------HABITACION AÑADIDA----------");
+				Visor.mostrar("----------HABITACION AÑADIDA----------");
 				break;
 			case Menu.SALIR:
-				System.out.println("--------------VOLVIENDO------------------");
+				Visor.mostrar("--------------VOLVIENDO------------------");
 				break;
 			default:
-				System.out.println("opcion no disponible prueve otra");
+				Visor.mostrar("opcion no disponible prueve otra");
 				break;
 			}
 		} while (opcHabitacion != Menu.SALIR);

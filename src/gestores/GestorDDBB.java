@@ -103,7 +103,7 @@ public class GestorDDBB extends Conexion {
 
 		return clientes;
 	}
-
+//hoteles
 	public void insertarHotel(Hotel hotel) {
 
 		String insertarHotel = "INSERT INTO hoteles (cif, nombre, gerente, estrellas, compania) VALUES(?,?,?,?,?)";
@@ -126,7 +126,7 @@ public class GestorDDBB extends Conexion {
 
 	}
 
-	/* EL SIGUIENTE */
+	
 
 	public void eliminarHotel(int id) {
 
@@ -202,7 +202,7 @@ public class GestorDDBB extends Conexion {
 
 		return hoteles;
 	}
-
+//reserva
 	public ArrayList<String> devolverDNI() {
 
 		ArrayList<String> dnis = new ArrayList<>();
@@ -247,6 +247,103 @@ public class GestorDDBB extends Conexion {
 		}
 	}
 
+	public void eliminarReserva(int id) {
+		String elimiarHotel = "DELETE FROM reserva WHERE id= ?";
+
+		try {
+
+			PreparedStatement deleteHotel = super.cn.prepareStatement(elimiarHotel);
+
+			deleteHotel.setInt(1, id);
+
+			deleteHotel.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public Reserva selectReserva (int id) {
+		String selectReservas = "SELECT * FROM Reserva";
+		Reserva Reserva = new Reserva();
+		PreparedStatement mostrarReservas;
+		try {
+			mostrarReservas = super.cn.prepareStatement(selectReservas);
+			ResultSet resultSet = mostrarReservas.executeQuery(selectReservas);
+		
+		Reserva.setId(resultSet.getInt("id"));
+		Reserva.setId_habitacion(resultSet.getInt("id_habitacion"));
+		Reserva.setDni(resultSet.getString("dni"));
+		Reserva.setDesde(resultSet.getDate("desde"));
+		Reserva.setHasta(resultSet.getDate("hasta"));
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+		
+	}
+	public void modificarReserva(Reserva reserva) {
+		String modificarCliente = "UPDATE reservas SET  Id_habitacion = ?, Dni = ?, Desde = ?, Hasta =? WHERE Id = ?";
+		
+		try {
+			
+			PreparedStatement updateReserva = super.cn.prepareStatement(modificarCliente);
+			
+			
+			
+			updateReserva.setInt(1, reserva.getId_habitacion());
+			updateReserva.setString(2, reserva.getDni());
+			updateReserva.setString(3, reserva.getStringDesde());
+			updateReserva.setString(4, reserva.getStringHasta());
+			updateReserva.setInt(5,reserva.getId());
+		
+			updateReserva.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public ArrayList<Reserva> mostrarReservas() {
+		
+		
+		String selectHoteles = "SELECT * FROM hoteles";
+		
+		ArrayList<Reserva> Reservas = new ArrayList<Reserva>();
+		
+		try {
+			
+			PreparedStatement mostrarHoteles = super.cn.prepareStatement(selectHoteles);
+			ResultSet resultSet = mostrarHoteles.executeQuery(selectHoteles);
+			
+			while (resultSet.next()) {
+				
+				Reserva Reserva = new Reserva();
+				
+				
+				
+				Reserva.setId(resultSet.getInt("id"));
+				Reserva.setId_habitacion(resultSet.getInt("id_habitacion"));
+				Reserva.setDni(resultSet.getString("dni"));
+				Reserva.setDesde(resultSet.getDate("desde"));
+				Reserva.setHasta(resultSet.getDate("hasta"));
+				
+				Reservas.add(Reserva);
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return Reservas;
+	}
 	//habitacion
 	public ArrayList<Habitacion> mostrarArrayHabitaciones(){
 
@@ -337,4 +434,10 @@ public class GestorDDBB extends Conexion {
 		}
 
 	}
+
+		
+	
+
+
+
 }

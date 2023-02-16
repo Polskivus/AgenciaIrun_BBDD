@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import menu.FormularioDatos;
 import menu.Menu;
+import menu.Visor;
 import objetos.Reserva;
 
 public class GestorReservas {
@@ -12,7 +13,7 @@ public class GestorReservas {
 	public static void run(Scanner sc) {
 
 		GestorDDBB gestorDDBB = new GestorDDBB();
-
+		Visor Visor =new Visor();
 		int opcReserva;
 
 		do {
@@ -23,7 +24,7 @@ public class GestorReservas {
 
 			while (opcReserva < Menu.SALIR || opcReserva > Menu.VISUALIZAR_RESERVAS) {
 
-				System.out.println("!Error¡ Introduce un valor valido");
+				Visor.mostrar("!Error¡ Introduce un valor valido");
 
 				Menu.menuReservas();
 
@@ -33,14 +34,9 @@ public class GestorReservas {
 			switch (opcReserva) {
 			case Menu.INSERTAR_RESERVAS:
 
-				ArrayList<String> dnis = new ArrayList<>();
-
-				Reserva reserva = new Reserva();
-
+			
 				gestorDDBB.abrirConexion();
-				dnis = gestorDDBB.devolverDNI();
-				reserva = FormularioDatos.insertarReserva(sc, dnis);
-
+				gestorDDBB.insertarReserva(FormularioDatos.insertarReserva(sc, gestorDDBB.devolverDNI()));
 				gestorDDBB.cerrarConexion();
 
 				break;
@@ -48,7 +44,7 @@ public class GestorReservas {
 			case Menu.ELIMINAR_RESERVAS:
 
 				gestorDDBB.abrirConexion();
-
+				gestorDDBB.eliminarReserva(FormularioDatos.insertarReserva(sc, gestorDDBB.devolverDNI()).getId());
 				gestorDDBB.cerrarConexion();
 
 				break;
@@ -56,7 +52,7 @@ public class GestorReservas {
 			case Menu.MODIFICAR_RESERVAS:
 
 				gestorDDBB.abrirConexion();
-
+				gestorDDBB.modificarReserva(FormularioDatos.pedirReservaModificar(sc,gestorDDBB.selectReserva(FormularioDatos.pedirId(sc))));
 				gestorDDBB.cerrarConexion();
 
 				break;
@@ -64,7 +60,7 @@ public class GestorReservas {
 			case Menu.VISUALIZAR_RESERVAS:
 
 				gestorDDBB.abrirConexion();
-
+				Visor.mostrarArrayReservas(gestorDDBB.mostrarReservas());
 				gestorDDBB.cerrarConexion();
 
 				break;

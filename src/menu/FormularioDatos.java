@@ -3,6 +3,7 @@ package menu;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -17,20 +18,19 @@ public class FormularioDatos {
 	public static Cliente pedirNuevoCliente(Scanner sc) {
 
 		Cliente cliente = new Cliente();
-
-		System.out.println("Introduce tu DNI");
+		Visor.mostrar("Introduce tu DNI");
 		cliente.setDni(sc.nextLine());
 
-		System.out.println("Introduce tu nombre");
+		Visor.mostrar("Introduce tu nombre");
 		cliente.setNombre(sc.nextLine());
 
-		System.out.println("Introduce tu apellido");
+		Visor.mostrar("Introduce tu apellido");
 		cliente.setApellido(sc.nextLine());
 
-		System.out.println("Introduce tu direccion");
+		Visor.mostrar("Introduce tu direccion");
 		cliente.setDireccion(sc.nextLine());
 
-		System.out.println("Introduce tu localidad");
+		Visor.mostrar("Introduce tu localidad");
 		cliente.setLocalidad(sc.nextLine());
 
 		return cliente;
@@ -40,7 +40,7 @@ public class FormularioDatos {
 
 		String DNICliente;
 
-		System.out.println("Introduce el DNI que quieres eliminar");
+		Visor.mostrar("Introduce el DNI que quieres eliminar");
 		DNICliente = sc.nextLine();
 
 		return DNICliente;
@@ -51,7 +51,7 @@ public class FormularioDatos {
 
 		String DNICliente;
 
-		System.out.println("Introduce el DNI que quieres modificar");
+		Visor.mostrar("Introduce el DNI que quieres modificar");
 		DNICliente = sc.nextLine();
 
 		return DNICliente;
@@ -62,16 +62,16 @@ public class FormularioDatos {
 
 		cliente.setDni(pedirDNIClienteModificar(sc));
 
-		System.out.println("Introduce el nombre modificado");
+		Visor.mostrar("Introduce el nombre modificado");
 		cliente.setNombre(sc.nextLine());
 
-		System.out.println("Introduce el apellido modificado");
+		Visor.mostrar("Introduce el apellido modificado");
 		cliente.setApellido(sc.nextLine());
 
-		System.out.println("Introduce la nueva direccion");
+		Visor.mostrar("Introduce la nueva direccion");
 		cliente.setDireccion(sc.nextLine());
 
-		System.out.println("Introduce la nueva poblacion");
+		Visor.mostrar("Introduce la nueva poblacion");
 		cliente.setLocalidad(sc.nextLine());
 
 		return cliente;
@@ -81,19 +81,19 @@ public class FormularioDatos {
 
 		Hotel hotel = new Hotel();
 
-		System.out.println("Introduce el CIF del hotel nuevo");
+		Visor.mostrar("Introduce el CIF del hotel nuevo");
 		hotel.setCif(sc.nextLine());
 
-		System.out.println("Introduce el nombre del hotel");
+		Visor.mostrar("Introduce el nombre del hotel");
 		hotel.setNombre(sc.nextLine());
 
-		System.out.println("Introduce el nombre del gerente");
+		Visor.mostrar("Introduce el nombre del gerente");
 		hotel.setGerente(sc.nextLine());
 
-		System.out.println("Introduce el numero de estrellas");
+		Visor.mostrar("Introduce el numero de estrellas");
 		hotel.setEstrellas(Integer.parseInt(sc.nextLine()));
 
-		System.out.println("Introduce el nombre de la compañia");
+		Visor.mostrar("Introduce el nombre de la compañia");
 		hotel.setCompania(sc.nextLine());
 
 		return hotel;
@@ -103,7 +103,7 @@ public class FormularioDatos {
 
 		int id_hotel;
 
-		System.out.println("Introduce el id que quieres eliminar");
+		Visor.mostrar("Introduce el id que quieres eliminar");
 		id_hotel = Integer.parseInt(sc.nextLine());
 
 		return id_hotel;
@@ -114,7 +114,7 @@ public class FormularioDatos {
 
 		int id_hotel;
 
-		System.out.println("Introduce el id que quieres modificar");
+		Visor.mostrar("Introduce el id que quieres modificar");
 		id_hotel = Integer.parseInt(sc.nextLine());
 
 		return id_hotel;
@@ -127,19 +127,19 @@ public class FormularioDatos {
 
 		hotel_mod.setId(pedirIDHotelModificar(sc));
 
-		System.out.println("Introduce el CIF del hotel modificado");
+		Visor.mostrar("Introduce el CIF del hotel modificado");
 		hotel.setCif(sc.nextLine());
 
-		System.out.println("Introduce el nombre del modificado");
+		Visor.mostrar("Introduce el nombre del modificado");
 		hotel.setNombre(sc.nextLine());
 
-		System.out.println("Introduce el nombre del gerente nuevo");
+		Visor.mostrar("Introduce el nombre del gerente nuevo");
 		hotel.setGerente(sc.nextLine());
 
-		System.out.println("Introduce el numero de estrellas nuevas");
+		Visor.mostrar("Introduce el numero de estrellas nuevas");
 		hotel.setEstrellas(Integer.parseInt(sc.nextLine()));
 
-		System.out.println("Introduce el nombre de la compañia nueva");
+		Visor.mostrar("Introduce el nombre de la compañia nueva");
 		hotel.setCompania(sc.nextLine());
 
 		return hotel_mod;
@@ -149,19 +149,19 @@ public class FormularioDatos {
 	public static Habitacion pedirHabitacion(Scanner sc) {
 		Habitacion habitacion = new Habitacion();
 
-		System.out.println("Introduce la ID de la nueva abitacion:");
+		Visor.mostrar("Introduce la ID de la nueva abitacion:");
 		habitacion.setId(Integer.parseInt(sc.nextLine()));
 
-		System.out.println("Introduce la ID del HOTEL de la nueva abitacion:");
+		Visor.mostrar("Introduce la ID del HOTEL de la nueva abitacion:");
 		habitacion.setId_hotel(Integer.parseInt(sc.nextLine()));
 
-		System.out.println("Introduce el Numero de la nueva abitacion:");
+		Visor.mostrar("Introduce el Numero de la nueva abitacion:");
 		habitacion.setNumero(sc.nextLine());
 
-		System.out.println("Introduce la Descripcion de la nueva abitacion:");
+		Visor.mostrar("Introduce la Descripcion de la nueva abitacion:");
 		habitacion.setDescripcion(sc.nextLine());
 
-		System.out.println("Introduce la Precio de la nueva abitacion:");
+		Visor.mostrar("Introduce la Precio de la nueva abitacion:");
 		habitacion.setPrecio(Double.parseDouble(sc.nextLine()));
 		return habitacion;
 
@@ -171,7 +171,7 @@ public class FormularioDatos {
 
 		int id;
 
-		System.out.println("Introduce el id ");
+		Visor.mostrar("Introduce el id ");
 		id = Integer.parseInt(sc.nextLine());
 
 		return id;
@@ -179,19 +179,19 @@ public class FormularioDatos {
 	}
 
 	public static Habitacion modHabitacion(Habitacion habitacion, Scanner sc) {
-		System.out.println("Introduce el id que quieres modificar");
+		Visor.mostrar("Introduce el id que quieres modificar");
 		habitacion.setId(Integer.parseInt(sc.nextLine()));
 
-		System.out.println("Introduce el id del hotel alque pertenecela abitacion que quieres modificar");
+		Visor.mostrar("Introduce el id del hotel alque pertenecela abitacion que quieres modificar");
 		habitacion.setId_hotel(Integer.parseInt(sc.nextLine()));
 
-		System.out.println("Introduce el nombre modificado");
+		Visor.mostrar("Introduce el nombre modificado");
 		habitacion.setNumero(sc.nextLine());
 
-		System.out.println("Introduce la Descripcion modificado");
+		Visor.mostrar("Introduce la Descripcion modificado");
 		habitacion.setDescripcion(sc.nextLine());
 
-		System.out.println("Introduce el nuevo Precio");
+		Visor.mostrar("Introduce el nuevo Precio");
 		habitacion.setPrecio(Double.parseDouble(sc.nextLine()));
 
 		return habitacion;
@@ -215,7 +215,7 @@ public class FormularioDatos {
 
 				if (dniReserva.equals(dni)) {
 
-					System.out.println("El DNI introducido esta dentro del sistema");
+					Visor.mostrar("El DNI introducido esta dentro del sistema");
 
 					bien_o_mal = true;
 				}
@@ -224,26 +224,26 @@ public class FormularioDatos {
 
 			while (bien_o_mal == false) {
 
-				System.out.println("No se encontro el DNI expecificado");
+				Visor.mostrar("No se encontro el DNI expecificado");
 
-				System.out.println("Introducir de nuevo o salir?");
+				Visor.mostrar("Introducir de nuevo o salir?");
 
-				System.out.println(Menu.INSERTAR_RESERVAS+".- De nuevo");
-				System.out.println(Menu.SALIR + ".- Salir");
+				Visor.mostrar(Menu.INSERTAR_RESERVAS+".- De nuevo");
+				Visor.mostrar(Menu.SALIR + ".- Salir");
 
 				opcInsertReserva = Integer.parseInt(sc.nextLine());
 
 				switch (opcInsertReserva) {
 				case Menu.INSERTAR_RESERVAS:
 
-					System.out.println("Introduce el nuevo dni:");
+					Visor.mostrar("Introduce el nuevo dni:");
 					dniReserva = sc.nextLine();
 
 					break;
 
 				case Menu.SALIR:
 
-					System.out.println("Hasta luego");
+					Visor.mostrar("Hasta luego");
 
 					sales = true;
 					bien_o_mal = true;
@@ -257,17 +257,17 @@ public class FormularioDatos {
 
 		if (sales == false) {
 
-			System.out.println("Introduce el ID del habitacion.");
+			Visor.mostrar("Introduce el ID de habitacion.");
 			reserva.setId_habitacion(Integer.parseInt(sc.nextLine()));
 
 			reserva.setDni(dniReserva);
 
 			
 			try {
-				System.out.println("Cuando reservas?");
+				Visor.mostrar("Cuando reservas?");
 				reserva.setDesde(reserva.simpleDateFormat.parse(sc.nextLine()));
 				
-				System.out.printf("Hasta cuando?");
+				Visor.mostrar("Hasta cuando?");
 				reserva.setHasta(reserva.simpleDateFormat.parse(sc.nextLine()));
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
@@ -280,6 +280,36 @@ public class FormularioDatos {
 
 		return reserva;
 
+	}
+
+	public static int pedirId(Scanner sc) {
+		Visor.mostrar(" dame el id:");
+		int id = Integer.parseInt(sc.nextLine());
+		return id;
+	}
+
+	public static Reserva pedirReservaModificar(Scanner sc, Reserva reserva) {
+		Visor.mostrar("Introduce el nuevo ID de habitacion.");
+		reserva.setId_habitacion(Integer.parseInt(sc.nextLine()));
+		
+		Visor.mostrar("Introduce el nuevo dni de cliente");
+		reserva.setDni(sc.nextLine());
+	
+		try {
+			Visor.mostrar("Cuando reservas?");
+			reserva.setDesde(reserva.simpleDateFormat.parse(sc.nextLine()));
+			
+			Visor.mostrar("Hasta cuando?");
+			reserva.setHasta(reserva.simpleDateFormat.parse(sc.nextLine()));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		return reserva;
 	}
 
 }

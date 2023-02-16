@@ -3,6 +3,7 @@ package gestores;
 import java.util.Scanner;
 
 import menu.Menu;
+import menu.Visor;
 
 public class GestorAgencia {
 
@@ -19,7 +20,7 @@ public class GestorAgencia {
 
 			while (opc < Menu.SALIR || opc > Menu.GESTION_RESERVAS) {
 
-				System.out.println("!Error¡ Introduce un valor valido");
+				Visor.mostrar("!Error¡ Introduce un valor valido");
 
 				Menu.menuPrincipal();
 

@@ -30,7 +30,7 @@ public class GestorHotel {
 
 			while (opcHotel < Menu.SALIR || opcHotel > Menu.VISUALIZAR_HOTEL) {
 
-				System.out.println("!Error¡ Introduce un valor valido");
+				Visor.mostrar("!Error¡ Introduce un valor valido");
 
 				Menu.menuClientes();
 
@@ -51,7 +51,7 @@ public class GestorHotel {
 				gestorDDBB.insertarHotel(hotel);
 				gestorDDBB.cerrarConexion();
 
-				System.out.println("----------HOTEL AÑADIDO----------");
+				Visor.mostrar("----------HOTEL AÑADIDO----------");
 
 				break;
 
@@ -64,7 +64,7 @@ public class GestorHotel {
 				gestorDDBB.eliminarHotel(id);
 				gestorDDBB.cerrarConexion();
 
-				System.out.println("----------HOTEL ELIMINADO----------");
+				Visor.mostrar("----------HOTEL ELIMINADO----------");
 
 				break;
 
@@ -77,7 +77,7 @@ public class GestorHotel {
 				gestorDDBB.modificarHotel(hotel_mod);
 				gestorDDBB.cerrarConexion();
 
-				System.out.println("----------HOTEL MODIFICADO----------");
+				Visor.mostrar("----------HOTEL MODIFICADO----------");
 
 				break;
 
@@ -88,13 +88,13 @@ public class GestorHotel {
 				Visor.mostrarArrayHoteles(hoteles);
 				gestorDDBB.cerrarConexion();
 
-				System.out.println("-------HOTELES EN SISTEMA--------");
+				Visor.mostrar("-------HOTELES EN SISTEMA--------");
 
 				break;
 
 			case Menu.SALIR:
 
-				System.out.println("--------------VOLVIENDO------------------");
+				Visor.mostrar("--------------VOLVIENDO------------------");
 
 				break;
 			}

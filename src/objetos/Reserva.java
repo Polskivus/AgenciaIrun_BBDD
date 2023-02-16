@@ -47,8 +47,8 @@ public class Reserva {
 		this.desde = desde;
 	}
 
-	public Date getHasta() {
-		return hasta;
+	public java.sql.Date getHasta() {
+		return (java.sql.Date) hasta;
 	}
 	public String getStringHasta() {
 		return ""+hasta;
