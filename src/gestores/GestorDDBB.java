@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import conexion.Conexion;
 import objetos.Cliente;
@@ -228,8 +229,23 @@ public class GestorDDBB extends Conexion {
 
 	public void insertarReserva(Reserva reserva) {
 		
-		String insertReserva = "INSERT INTO reservas VALUES (id_habitacion, dni, desde, hasta)"
-		
+		String insertareserva = "INSERT INTO reservas VALUES (id_habitacion, dni, desde, hasta)";
+		try {
+
+			PreparedStatement insertreserva = super.cn.prepareStatement(insertareserva);
+
+			insertreserva.setInt(1,reserva.getId());
+			insertreserva.setInt(2, reserva.getId_habitacion());
+			insertreserva.setString(3, reserva.getDni());
+			insertreserva.setString(4, reserva.getStringDesde());
+			insertreserva.setString(5, reserva.getStringHasta());
+
+			insertreserva.execute();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	//habitacion
 	public ArrayList<Habitacion> mostrarArrayHabitaciones(){

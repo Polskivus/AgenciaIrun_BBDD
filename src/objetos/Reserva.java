@@ -35,6 +35,9 @@ public class Reserva {
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
+	public String getStringDesde() {
+		return ""+desde;
+	}
 
 	public java.sql.Date getDesde() {
 		return (java.sql.Date) desde;
@@ -46,6 +49,9 @@ public class Reserva {
 
 	public Date getHasta() {
 		return hasta;
+	}
+	public String getStringHasta() {
+		return ""+hasta;
 	}
 
 	public void setHasta(Date hasta) {

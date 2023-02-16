@@ -1,5 +1,6 @@
 package menu;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -261,11 +262,19 @@ public class FormularioDatos {
 
 			reserva.setDni(dniReserva);
 
-			System.out.println("Cuando reservas?");
-			reserva.setDesde();
+			
+			try {
+				System.out.println("Cuando reservas?");
+				reserva.setDesde(reserva.simpleDateFormat.parse(sc.nextLine()));
+				
+				System.out.printf("Hasta cuando?");
+				reserva.setHasta(reserva.simpleDateFormat.parse(sc.nextLine()));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-			System.out.printf("Hasta cuando?");
-			reserva.setHasta();
+			
 
 		}
 
