@@ -24,7 +24,7 @@ public class Conexion {
 	public void abrirConexion() {
 		try {
 			
-			String urlconexion = "jdbc:mysql://localhost/hoteles";
+			String urlconexion = "jdbc:mysql://localhost/agenciairun_bbdd";
 			cn = (Connection) DriverManager.getConnection(urlconexion, "root", "");
 			
 		} catch (Exception e) {
