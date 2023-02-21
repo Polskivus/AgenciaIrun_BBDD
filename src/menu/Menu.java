@@ -41,41 +41,41 @@ public class Menu {
 
 	public static void menuClientes() {
 		System.out.println("---------------------------------");
-		System.out.println(INSERTAR_CLIENTE + ".- Añadir cliente");
-		System.out.println(ELIMINAR_CLIENTE + ".- Eliminar cliete");
-		System.out.println(MODIFICAR_CLIENTE + ".- Modificar cliente");
-		System.out.println(VISUALIZAR_CLIENTE + ".- Visualizar clientela");
-		System.out.println(SALIR + ".- Volver al principal");
+		System.out.println(" "+INSERTAR_CLIENTE + ".- Añadir cliente");
+		System.out.println(" "+ELIMINAR_CLIENTE + ".- Eliminar cliete");
+		System.out.println(" "+MODIFICAR_CLIENTE + ".- Modificar cliente");
+		System.out.println(" "+VISUALIZAR_CLIENTE + ".- Visualizar clientela");
+		System.out.println(" "+SALIR + ".- Volver al principal");
 		System.out.println("---------------------------------");
 	}
 
 	public static void menuHabitaciones() {
 		System.out.println("---------------------------------");
-		System.out.println(VISUALIZAR_HABITACION + ".- Visualizar habitaciones(disponibles?)");
-		System.out.println(ELIMINAR_HABITACIONES + ".- Eliminar habitaciones");
-		System.out.println(MODIFICAR_HABITCION + ".- Modificar habitacion");
-		System.out.println(INSERTAR_HABITACION + ".- Añadir habitacion");
-		System.out.println(SALIR + ".- Volver al principal");
+		System.out.println(" "+VISUALIZAR_HABITACION + ".- Visualizar habitaciones(disponibles?)");
+		System.out.println(" "+ELIMINAR_HABITACIONES + ".- Eliminar habitaciones");
+		System.out.println(" "+MODIFICAR_HABITCION + ".- Modificar habitacion");
+		System.out.println(" "+INSERTAR_HABITACION + ".- Añadir habitacion");
+		System.out.println(" "+SALIR + ".- Volver al principal");
 		System.out.println("---------------------------------");
 	}
 
 	public static void menuHoteles() {
 		System.out.println("---------------------------------");
-		System.out.println(INSERTAR_HOTEL + ".- Añadir hotel");
-		System.out.println(ELIMINAR_HOTEL + ".- Eliminar hotel");
-		System.out.println(MODIFICAR_HOTEL + ".- Modificar hotel");
-		System.out.println(VISUALIZAR_HOTEL + ".- Visualizar hoteles");
-		System.out.println(SALIR + ".- Volver al principal");
+		System.out.println(" "+INSERTAR_HOTEL + ".- Añadir hotel");
+		System.out.println(" "+ELIMINAR_HOTEL + ".- Eliminar hotel");
+		System.out.println(" "+MODIFICAR_HOTEL + ".- Modificar hotel");
+		System.out.println(" "+VISUALIZAR_HOTEL + ".- Visualizar hoteles");
+		System.out.println(" "+SALIR + ".- Volver al principal");
 		System.out.println("---------------------------------");
 	}
 
 	public static void menuReservas() {
 		System.out.println("---------------------------------");
-		System.out.println(VISUALIZAR_RESERVAS + ".- Visualizar reservas");
-		System.out.println(ELIMINAR_RESERVAS + ".- Eliminar reserva");
-		System.out.println(MODIFICAR_RESERVAS + ".- Modificar reserva");
-		System.out.println(INSERTAR_RESERVAS + ".- Insertar reserva");
-		System.out.println(SALIR + ".- Volver al principal");
+		System.out.println(" "+VISUALIZAR_RESERVAS + ".- Visualizar reservas");
+		System.out.println(" "+ELIMINAR_RESERVAS + ".- Eliminar reserva");
+		System.out.println(" "+MODIFICAR_RESERVAS + ".- Modificar reserva");
+		System.out.println(" "+INSERTAR_RESERVAS + ".- Insertar reserva");
+		System.out.println(" "+SALIR + ".- Volver al principal");
 		System.out.println("---------------------------------");
 	}
 

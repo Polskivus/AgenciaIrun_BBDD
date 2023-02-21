@@ -270,7 +270,6 @@ public class FormularioDatos {
 				Visor.mostrar("Hasta cuando?");
 				reserva.setHasta(reserva.simpleDateFormat.parse(sc.nextLine()));
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 

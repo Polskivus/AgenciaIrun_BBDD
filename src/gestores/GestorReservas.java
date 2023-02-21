@@ -1,19 +1,18 @@
 package gestores;
 
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 import menu.FormularioDatos;
 import menu.Menu;
 import menu.Visor;
-import objetos.Reserva;
+
 
 public class GestorReservas {
 
 	public static void run(Scanner sc) {
 
 		GestorDDBB gestorDDBB = new GestorDDBB();
-		Visor Visor =new Visor();
 		int opcReserva;
 
 		do {
